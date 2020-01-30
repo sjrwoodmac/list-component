@@ -4,7 +4,6 @@ import React, {
   FunctionComponent,
   ReactElement,
   ReactNode,
-  useCallback,
   useState
 } from "react";
 import uuidv4 from "uuid/v4";
@@ -13,14 +12,16 @@ interface IListProps {
   checkboxes?: boolean;
   children: ReactNode;
   directional?: boolean;
+  draggable?: boolean;
   icon?: string;
   onChecked?: Function;
 }
 
 const List: FunctionComponent<IListProps> = ({
-  checkboxes,
+  checkboxes = false,
   children,
   directional = false,
+  draggable = false,
   icon,
   onChecked
 }) => {
@@ -32,8 +33,9 @@ const List: FunctionComponent<IListProps> = ({
           index: index,
           checkboxes,
           directional,
+          draggable,
           icon,
-          key: index,
+          key: uuidv4(),
           onChecked
         })
       )
