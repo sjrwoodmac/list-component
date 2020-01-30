@@ -2,14 +2,12 @@ import React, { FunctionComponent, ReactNode, useState, useRef } from "react";
 import { Checkbox, Icon } from "@blueprintjs/core";
 
 interface IListItemProps {
-  id: any;
+  id?: any;
   checkboxes?: boolean;
   chilren?: ReactNode;
   directional?: boolean;
   icon?: string;
   isSelected?: boolean;
-  index: number;
-  moveItem: (dragIndex: number, hoverIndex: number) => void;
   onChecked?: Function;
 }
 
@@ -26,8 +24,6 @@ const ListItem: FunctionComponent<IListItemProps> = ({
   directional,
   icon,
   isSelected,
-  index,
-  moveItem,
   onChecked
 }) => {
   const [selected, setSelected] = useState(isSelected);
