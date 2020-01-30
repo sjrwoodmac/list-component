@@ -1,0 +1,93 @@
+html,
+body {
+  background: #e6eef2;
+  color: #00263a;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+ol,
+ul {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+li > a {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  color: #00263a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px 6px;
+}
+
+li > a:focus,
+li > a:hover {
+  background: #006ba6;
+  color: #fff;
+  text-decoration: none;
+}
+
+li > a:focus {
+  outline: none;
+}
+
+li > a > .bp3-icon-full-circle {
+  height: 16px;
+  margin-right: 5px;
+  width: 16px;
+}
+
+li > a > .bp3-icon-full-circle > svg {
+  padding: 3px;
+}
+
+li > a > .list-item-text {
+  line-height: 0.875rem;
+  margin-left: 3px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-container > section {
+  flex-basis: 33%;
+  padding: 8px;
+}
+
+.list-directional > li > a {
+  justify-content: space-between;
+}
+
+.list-wrapper {
+  background: #fff;
+  border: 1px solid #d3e1e8;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 16px;
+  padding: 0;
+  max-width: 284px;
+}
+
+.list-title {
+  border-bottom: 1px solid #d3e1e8;
+  color: #446c82;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  padding: 16px 16px 7px 16px;
+}
+
+.list {
+  padding: 8px;
+}
+
+.bp3-control {
+  margin-bottom: 0;
+}
