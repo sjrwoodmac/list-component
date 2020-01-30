@@ -37,8 +37,7 @@ ul {
   border: 2px solid #00a9e0;
 }
 
-.list-item > a:active,
-.list-item-selected > a:active {
+.list-item > a:active {
   background: #00a9e0;
   color: #fff;
 }
@@ -54,6 +53,11 @@ ul {
 
 .list-item-selected:not(.list-item-checkbox) > a:hover {
   background: #005a8b;
+}
+
+.list-item-selected:not(.list-item-checkbox) > a:active {
+  background: #00a9e0;
+  color: #fff;
 }
 
 .list-item > a > .bp3-icon-full-circle {
