@@ -2,7 +2,7 @@ html,
 body {
   background: #e6eef2;
   color: #00263a;
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto";
   font-size: 16px;
 }
 
@@ -16,40 +16,63 @@ ul {
   padding-left: 0;
 }
 
-li > a {
+.list-item > a {
+  align-items: center;
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 4px;
   color: #00263a;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  max-height: 40px;
   padding: 10px 6px;
 }
 
-li > a:focus,
-li > a:hover {
-  background: #006ba6;
-  color: #fff;
+.list-item > a:hover {
+  background: #e6eef2;
   text-decoration: none;
 }
 
-li > a:focus {
+.list-item > a:focus {
   outline: none;
+  border: 2px solid #00a9e0;
 }
 
-li > a > .bp3-icon-full-circle {
+.list-item > a:active,
+.list-item-selected > a:active {
+  background: #00a9e0;
+  color: #fff;
+}
+
+.list-item > a:active .bp3-tag {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.list-item-selected:not(.list-item-checkbox) > a {
+  background: #006ba6;
+  color: #fff;
+}
+
+.list-item-selected:not(.list-item-checkbox) > a:hover {
+  background: #005a8b;
+}
+
+.list-item > a > .bp3-icon-full-circle {
   height: 16px;
   margin-right: 5px;
   width: 16px;
 }
 
-li > a > .bp3-icon-full-circle > svg {
+.list-item > a > .bp3-icon-full-circle > svg {
   padding: 3px;
 }
 
-li > a > .list-item-text {
-  line-height: 0.875rem;
+.list-item-text {
+  line-height: 1rem;
   margin-left: 3px;
+}
+
+.list-item-tag {
+  margin-left: auto;
 }
 
 .flex-container {
