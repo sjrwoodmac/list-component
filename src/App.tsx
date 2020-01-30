@@ -12,7 +12,7 @@ export default function App() {
 
       <div className="flex-container">
         <section>
-          <h2>Single Item - Default</h2>
+          <h2>Default</h2>
           <ListWrapper>
             <List>
               <ListItem>Item #1</ListItem>
@@ -25,7 +25,7 @@ export default function App() {
         </section>
 
         <section>
-          <h2>Single Item - Default with icon</h2>
+          <h2>With icon</h2>
           <ListWrapper>
             <List icon="full-circle">
               <ListItem>Item #1</ListItem>
@@ -38,7 +38,7 @@ export default function App() {
         </section>
 
         <section>
-          <h2>Single Item - Directional</h2>
+          <h2>Directional</h2>
           <ListWrapper>
             <List directional>
               <ListItem>Item #1</ListItem>
