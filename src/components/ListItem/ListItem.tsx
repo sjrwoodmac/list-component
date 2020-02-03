@@ -9,6 +9,7 @@ export interface IListItemProps {
   icon?: string;
   isSelected?: boolean;
   value?: string | number | boolean;
+  order?: number;
   onItemSelected?: Function;
 }
 
@@ -18,8 +19,9 @@ const ListItem: FunctionComponent<IListItemProps> = ({
   directional,
   draggable,
   icon,
-  value,
   isSelected,
+  value,
+  order,
   onItemSelected
 }) => {
   const ref = useRef<HTMLLIElement>(null);
@@ -30,11 +32,12 @@ const ListItem: FunctionComponent<IListItemProps> = ({
     e.preventDefault();
 
     const node = e.target as HTMLAnchorElement;
-    const { label, value } = node.dataset;
+    const { label, order, value } = node.dataset;
 
     onItemSelected &&
       onItemSelected({
         label,
+        order,
         value
       });
   };
@@ -97,6 +100,7 @@ const ListItem: FunctionComponent<IListItemProps> = ({
         onClick={handleListItemClick}
         data-label={children ? children.toString() : null}
         data-value={value || (children ? children.toString() : null)}
+        data-order={order}
       >
         <ListItemContent />
       </a>

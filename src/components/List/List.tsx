@@ -20,6 +20,7 @@ interface IListProps {
 
 interface ISelectedListItem {
   label: string;
+  order: number;
   value: string | number;
 }
 
@@ -37,6 +38,9 @@ const List: FunctionComponent<IListProps> = ({
     onSelected && onSelected(selectedItems);
   }, [selectedItems, onSelected]);
 
+  const sortSelectedItems = (items: ISelectedListItem[]) =>
+    items.sort((a, b) => (a.order > b.order ? 1 : -1));
+
   const handleItemSelect = (item: ISelectedListItem): void => {
     const isExistingSelectedItem = selectedItems.some(
       selectedItem =>
@@ -50,17 +54,22 @@ const List: FunctionComponent<IListProps> = ({
         setSelectedItems([item]);
       }
     } else {
+      const unsortedSelectedItems = selectedItems as ISelectedListItem[];
+      let sortedItems;
+
       if (isExistingSelectedItem) {
-        setSelectedItems(
-          selectedItems.filter(
+        sortedItems = sortSelectedItems(
+          unsortedSelectedItems.filter(
             selectedItem =>
               selectedItem.label !== item.label &&
               selectedItem.value !== item.value
           )
         );
       } else {
-        setSelectedItems([...selectedItems, item]);
+        sortedItems = sortSelectedItems([...unsortedSelectedItems, item]);
       }
+
+      setSelectedItems(sortedItems);
     }
   };
 
@@ -88,6 +97,7 @@ const List: FunctionComponent<IListProps> = ({
         draggable,
         icon,
         key: index,
+        order: index,
         isSelected,
         onItemSelected: handleItemSelect
       });
