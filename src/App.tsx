@@ -15,10 +15,10 @@ export default function App() {
           <h2>Default</h2>
           <ListWrapper>
             <List>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
+              <ListItem value="item1">Item 1</ListItem>
+              <ListItem value="item2">Item 2</ListItem>
+              <ListItem value="item3">Item 3</ListItem>
+              <ListItem value="item4">Item 4</ListItem>
             </List>
           </ListWrapper>
         </section>
@@ -27,10 +27,10 @@ export default function App() {
           <h2>With icon</h2>
           <ListWrapper>
             <List icon="full-circle">
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
+              <ListItem>Item 1</ListItem>
+              <ListItem>Item 2</ListItem>
+              <ListItem>Item 3</ListItem>
+              <ListItem>Item 4</ListItem>
             </List>
           </ListWrapper>
         </section>
@@ -39,10 +39,10 @@ export default function App() {
           <h2>Directional</h2>
           <ListWrapper>
             <List directional>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
+              <ListItem>Item 1</ListItem>
+              <ListItem>Item 2</ListItem>
+              <ListItem>Item 3</ListItem>
+              <ListItem>Item 4</ListItem>
             </List>
           </ListWrapper>
         </section>
@@ -52,10 +52,10 @@ export default function App() {
           <ListWrapper>
             <ListTitle>Title</ListTitle>
             <List icon="full-circle">
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
+              <ListItem>Item 1</ListItem>
+              <ListItem>Item 2</ListItem>
+              <ListItem>Item 3</ListItem>
+              <ListItem>Item 4</ListItem>
             </List>
           </ListWrapper>
         </section>
@@ -63,11 +63,11 @@ export default function App() {
         <section>
           <h2>Checkbox</h2>
           <ListWrapper>
-            <List checkboxes onChecked={() => {}}>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
+            <List multiSelect onSelected={(items: any) => console.log(items)}>
+              <ListItem>Item 1</ListItem>
+              <ListItem>Item 2</ListItem>
+              <ListItem>Item 3</ListItem>
+              <ListItem>Item 4</ListItem>
             </List>
           </ListWrapper>
         </section>
@@ -76,10 +76,10 @@ export default function App() {
           <h2>Draggable</h2>
           <ListWrapper>
             <List draggable>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
+              <ListItem>Item 1</ListItem>
+              <ListItem>Item 2</ListItem>
+              <ListItem>Item 3</ListItem>
+              <ListItem>Item 4</ListItem>
             </List>
           </ListWrapper>
         </section>

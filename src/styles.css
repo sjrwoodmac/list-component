@@ -46,6 +46,10 @@ ul {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.list-item > a * {
+  pointer-events: none;
+}
+
 .list-item-selected:not(.list-item-checkbox) > a {
   background: #006ba6;
   color: #fff;

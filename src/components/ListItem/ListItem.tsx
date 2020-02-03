@@ -1,43 +1,49 @@
-import React, { FunctionComponent, ReactNode, useState, useRef } from "react";
+import React, { FunctionComponent, ReactNode, useRef } from "react";
 import { Checkbox, Icon, Tag } from "@blueprintjs/core";
 
-interface IListItemProps {
-  id?: any;
-  checkboxes?: boolean;
-  chilren?: ReactNode;
+export interface IListItemProps {
+  multiSelect?: boolean;
+  children?: ReactNode;
   directional?: boolean;
   draggable?: boolean;
   icon?: string;
   isSelected?: boolean;
-  onChecked?: Function;
+  value?: string | number | boolean;
+  onItemSelected?: Function;
 }
 
 const ListItem: FunctionComponent<IListItemProps> = ({
-  id,
-  checkboxes,
+  multiSelect,
   children,
   directional,
   draggable,
   icon,
+  value,
   isSelected,
-  onChecked
+  onItemSelected
 }) => {
-  const [selected, setSelected] = useState(isSelected);
-
   const ref = useRef<HTMLLIElement>(null);
 
   const handleListItemClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     e.preventDefault();
-    setSelected(!selected);
+
+    const node = e.target as HTMLAnchorElement;
+    const { label, value } = node.dataset;
+
+    onItemSelected &&
+      onItemSelected({
+        label,
+        value
+      });
   };
 
   const ListItemContent = () => {
-    if (checkboxes) {
+    if (multiSelect) {
       return (
         <>
-          <Checkbox checked={selected} tabIndex={-1} />
+          <Checkbox checked={isSelected} tabIndex={-1} />
           <span className="list-item-text">{children}</span>
           <Tag className="list-item-tag" minimal>
             Unit
@@ -81,12 +87,17 @@ const ListItem: FunctionComponent<IListItemProps> = ({
   return (
     <li
       ref={ref}
-      id={id}
-      className={`list-item${checkboxes ? " list-item-checkbox" : ""}${
+      className={`list-item${multiSelect ? " list-item-checkbox" : ""}${
         draggable ? " list-item-draggable" : ""
-      }${selected ? " list-item-selected" : ""}`}
+      }${isSelected ? " list-item-selected" : ""}`}
     >
-      <a href="/" role="button" onClick={handleListItemClick}>
+      <a
+        href="/"
+        role="button"
+        onClick={handleListItemClick}
+        data-label={children ? children.toString() : null}
+        data-value={value || (children ? children.toString() : null)}
+      >
         <ListItemContent />
       </a>
     </li>
